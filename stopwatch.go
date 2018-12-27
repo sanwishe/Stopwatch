@@ -35,10 +35,6 @@ func (w *StopWatch) Start(taskName string) error {
 		return fmt.Errorf("can not start new stopwatch, current task: %s is running", w.latestTaskName)
 	}
 
-	if w.latestTaskName == taskName {
-		return fmt.Errorf("can not start new stopwatch, task:%s already running", taskName)
-	}
-
 	w.latestTaskName = taskName
 	w.latestStartTime = time.Now()
 
