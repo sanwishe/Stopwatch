@@ -86,8 +86,14 @@ func (w *StopWatch) PrettyPrint() string {
 
 	for e := w.taskList.Front(); e != nil; e = e.Next() {
 		taskInfo := e.Value.(taskInfo)
+		
+		elapsed := 0
+		if w.totalElapsed != 0 {
+			elapsed = taskInfo.taskElapsed*100/w.totalElapsed
+		}
+		
 		buf.WriteString(fmt.Sprintf("%-10d", taskInfo.taskElapsed/1000000))
-		buf.WriteString(fmt.Sprintf("%-10s", fmt.Sprintf("%d%%", taskInfo.taskElapsed*100/w.totalElapsed)))
+		buf.WriteString(fmt.Sprintf("%-10s", fmt.Sprintf("%d%%", elapsed)))
 		buf.WriteString(fmt.Sprintf("%s\n", taskInfo.taskName))
 	}
 	return buf.String()
