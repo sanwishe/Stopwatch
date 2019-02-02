@@ -1,7 +1,7 @@
 # StopWatch
 
 A simple stop watch, allowing for timing of a number of tasks.exposing total running time and running time for each named task.
-Note that it is not designed to be thread-safe and does not use synchronization.
+Note that [Storpwatch](https://github.com/sanwishe/Stopwatch) is not designed for mutli-thread use.
 
 # Usage
 
