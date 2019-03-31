@@ -87,7 +87,7 @@ func (w *StopWatch) PrettyPrint() string {
 	for e := w.taskList.Front(); e != nil; e = e.Next() {
 		taskInfo := e.Value.(taskInfo)
 		
-		elapsed := 0
+		var elapsed int64
 		if w.totalElapsed != 0 {
 			elapsed = taskInfo.taskElapsed*100/w.totalElapsed
 		}
